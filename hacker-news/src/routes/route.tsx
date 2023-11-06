@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainPage from "../pages/main/mainPage";
-import News from "../pages/news/news";
 import newsLoader from "../routes/loaders/newsLoader";
+import NewsPage from "../pages/news/news";
 
 const router = createBrowserRouter([
   {
@@ -10,7 +10,7 @@ const router = createBrowserRouter([
   },
   {
     path: "news/:newsId",
-    element: <News />,
+    element: <NewsPage />,
     loader: newsLoader,
   },
 ]);

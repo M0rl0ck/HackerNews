@@ -1,8 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 
-const News = () => {
+const NewsPage = () => {
   const { id } = useLoaderData() as { id: string };
   return <div>This is news whith id {id}</div>;
 };
 
-export default News;
+export default NewsPage;

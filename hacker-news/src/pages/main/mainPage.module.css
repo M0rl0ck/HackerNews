@@ -1,0 +1,9 @@
+.mainPage {
+  display: flex;
+}
+
+.buttonContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+}

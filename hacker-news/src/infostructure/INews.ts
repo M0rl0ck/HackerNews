@@ -1,22 +1,22 @@
-interface INews {
+interface IItem {
   by: string;
-  descendants: number;
   id: number;
   kids?: number[];
-  score: number;
   time: number;
+  deleted: boolean;
+  dead: boolean;
+}
+interface INews extends IItem {
+  descendants: number;
+  score: number;
   title: string;
   type: "story";
   url: string;
 }
 
-interface IComment {
-  by: string;
-  id: number;
+interface IComment extends IItem {
   parent: number;
-  kids?: number[];
   text: string;
-  time: number;
   type: "comment";
 }
 

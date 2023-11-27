@@ -23,5 +23,9 @@ const hackerNewsApi = createApi({
 
 export { hackerNewsApi };
 
-export const { useGetNewsQuery, useLazyGetItemQuery, useLazyGetNewsQuery } =
-  hackerNewsApi;
+export const {
+  useGetNewsQuery,
+  useGetItemQuery,
+  useLazyGetItemQuery,
+  useLazyGetNewsQuery,
+} = hackerNewsApi;

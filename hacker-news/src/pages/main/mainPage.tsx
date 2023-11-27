@@ -4,7 +4,7 @@ import {
   useLazyGetItemQuery,
 } from "../../store/API/HN_API";
 import type { INews } from "../../infostructure/INews";
-import NewsShort from "../../components/News/News";
+import NewsShort from "../../components/News/NewsShort";
 import styles from "./mainPage.module.css";
 
 enum NEWS {
@@ -20,6 +20,12 @@ const MainPage = () => {
 
   useEffect(() => {
     getNewsList();
+    const idInterval = setInterval(() => {
+      getNewsList();
+    }, 60000);
+    return () => {
+      clearInterval(idInterval);
+    };
   }, [getNewsList]);
 
   useEffect(() => {

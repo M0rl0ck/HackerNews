@@ -1,0 +1,19 @@
+.comment {
+  background-color: var(--comment_background);
+  border-radius: 5px;
+  box-shadow: var(--shaddow_color);
+  padding: 5px;
+}
+
+.button_open {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2px;
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 2px;
+  background-color: var(--comment_background);
+}

@@ -1,0 +1,18 @@
+.mainContainer {
+  max-width: var(--content_width);
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.newsContainer {
+  width: 94%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.buttonContainer {
+  position: fixed;
+  top: 20px;
+  right: calc((100vw - var(--content_width)) / 2 + 10px);
+}

@@ -1,0 +1,22 @@
+.news {
+  padding: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 18px;
+  background-color: var(--news_background);
+  box-shadow: var(--shaddow_news);
+  transition: all 0.3s;
+}
+
+.news:hover {
+  background-color: var(--news_hover_background);
+  box-shadow: var(--shaddow_hover_news);
+  transform: scale(1.01);
+  transition: all 0.3s;
+}
+
+.autorName {
+  font-weight: bold;
+  color: #2929c0;
+}

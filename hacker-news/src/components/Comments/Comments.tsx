@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useLazyGetItemQuery } from "../../store/API/HN_API";
 import Comment from "./Comment";
 import styles from "./comments.module.css";
+import Loading from "../Loading/Loading";
 
 interface IComments {
   ids: number[];
@@ -32,7 +33,7 @@ const Comments = ({ ids, choosedNews, setIsOpen }: IComments) => {
   }, [getComment, ids]);
   return (
     <>
-      {isFetching && <p>Loading...</p>}
+      {isFetching && <Loading />}
       {comments && (
         <div className={styles.comments}>
           {comments.map((comment) => (

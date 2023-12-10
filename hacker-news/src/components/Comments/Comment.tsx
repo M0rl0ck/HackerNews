@@ -20,8 +20,8 @@ const Comment = ({ comment, choosedNews, setIsOpen }: ICommentProp) => {
         dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(comment.text) }}
       ></div>
       {comment.kids && (
-        <button onClick={openComment}>
-          {choosedNews[comment.id] ? "-" : "+"}
+        <button onClick={openComment} className={styles.button_open}>
+          {choosedNews[comment.id] ? "v" : ">"}
         </button>
       )}
       {choosedNews[comment.id] && comment.kids && (

@@ -3,6 +3,9 @@ import { useGetItemQuery, useLazyGetItemQuery } from "../../store/API/HN_API";
 import type { INews } from "../../infostructure/INews";
 import { useEffect, useState } from "react";
 import NewsFull from "../../components/NewsFull/NewsFull";
+import styles from "./news.module.css";
+import ButtonReload from "../../components/Button/ButtonReload";
+import Loading from "../../components/Loading/Loading";
 
 const NewsPage = () => {
   const navigate = useNavigate();
@@ -27,11 +30,16 @@ const NewsPage = () => {
   }, [data]);
 
   return (
-    <div>
-      <button onClick={() => navigate("/")}>Назад</button>
-      <button onClick={updateNews}>Reload comments</button>
-      {isFetching && !news && <p>Loading...</p>}
-      {news && <NewsFull news={news} isUpdateComments={isUpdateComments} />}
+    <div className={styles.container}>
+      <div className={styles.buttons}>
+        <ButtonReload callBack={() => navigate("/")} text="Back" />
+        <ButtonReload callBack={updateNews} text="Reload comments" />
+      </div>
+
+      <div className={styles.newsContainer}>
+        {isFetching && !news && <Loading font_size="28px" />}
+        {news && <NewsFull news={news} isUpdateComments={isUpdateComments} />}
+      </div>
     </div>
   );
 };

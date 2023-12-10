@@ -1,0 +1,23 @@
+:root {
+  --height_buttons_container: 60px;
+}
+
+.container {
+  max-width: var(--content_width);
+  margin: 0 auto;
+  padding: 0 20px 20px;
+}
+
+.buttons {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  height: var(--height_buttons_container);
+  background-color: white;
+}
+
+.newsContainer {
+  padding-top: var(--height_buttons_container);
+}

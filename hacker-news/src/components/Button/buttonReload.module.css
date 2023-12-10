@@ -1,0 +1,15 @@
+.buttonReload {
+  padding: 5px 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--button_background);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.buttonReload:hover {
+  background-color: var(--button_hover_background);
+  color: aliceblue;
+  transition: all 0.3s;
+}

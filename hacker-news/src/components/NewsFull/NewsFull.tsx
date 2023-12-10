@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { INews } from "../../infostructure/INews";
 import Comments from "../Comments/Comments";
+import styles from "./newsFull.module.css";
+import Loading from "../Loading/Loading";
 
 interface INewsFull {
   news: INews;
@@ -20,14 +22,21 @@ const NewsShort = ({ news, isUpdateComments }: INewsFull) => {
   };
 
   return (
-    <div>
-      <h2>{news.title}</h2>
-      <p>{news.score}</p>
-      <p>Create by: {news.by}</p>
-      <p>{new Date(news.time).toDateString()}</p>
-      <a href={news.url}>{news.url}</a>
-      <p>Comments: {news.descendants}</p>
-      {isUpdateComments && <p>Loading...</p>}
+    <>
+      <div className={styles.news}>
+        <h2>{news.title}</h2>
+        <p>Score: {news.score}</p>
+        <p>
+          Create by: <span className={styles.autorName}>{news.by}</span>
+        </p>
+        <p>{new Date(news.time).toDateString()}</p>
+        <a href={news.url} className={styles.link}>
+          {news.url}
+        </a>
+        <p>Comments: {news.descendants}</p>
+      </div>
+
+      {isUpdateComments && <Loading />}
       {news.kids && !isUpdateComments && (
         <Comments
           ids={news.kids}
@@ -35,7 +44,7 @@ const NewsShort = ({ news, isUpdateComments }: INewsFull) => {
           setIsOpen={setIsOpen}
         />
       )}
-    </div>
+    </>
   );
 };
 

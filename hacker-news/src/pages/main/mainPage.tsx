@@ -6,6 +6,8 @@ import {
 import type { INews } from "../../infostructure/INews";
 import NewsShort from "../../components/News/NewsShort";
 import styles from "./mainPage.module.css";
+import ButtonReload from "../../components/Button/ButtonReload";
+import Loading from "../../components/Loading/Loading";
 
 enum NEWS {
   LENGTH_SLICE_NEWS = 10,
@@ -58,21 +60,21 @@ const MainPage = () => {
   }, [data, getItem]);
 
   return (
-    <section>
-      <div>
-        {(isFetching || isLoading) && <h1>Loading...</h1>}
+    <section className={styles.mainContainer}>
+      <div className={styles.newsContainer}>
+        {(isFetching || isLoading) && <Loading font_size="32px" />}
         {news &&
+          !isFetching &&
           !!news.length &&
           news.map((el) => <NewsShort key={el.id} news={el} />)}
       </div>
       <div className={styles.buttonContainer}>
-        <button
-          onClick={() => {
+        <ButtonReload
+          callBack={() => {
             getNewsList();
           }}
-        >
-          Reload
-        </button>
+          text="Reload"
+        />
       </div>
     </section>
   );

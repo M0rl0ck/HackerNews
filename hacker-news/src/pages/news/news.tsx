@@ -27,7 +27,10 @@ const NewsPage = () => {
         setNews(data);
       }
     }
-  }, [data]);
+    if (!data && !isFetching) {
+      navigate("/404");
+    }
+  }, [data, isFetching, navigate]);
 
   return (
     <div className={styles.container}>
